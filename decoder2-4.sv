@@ -12,9 +12,9 @@ module decoder2to4(din, en, dout);
 
   //a=din[0], b=din[1]
   //output assignments
-  assign dout[0] = (~din[0]) & (~din[1]) & en; //~a&~b&en
+  assign dout[0] = (~din[0]) & (~din[1]) & en;  //~a&~b&en
   assign dout[1] = (~din[0]) & (din[1]) & en; //~a&b&en
   assign dout[2] = (din[0]) & (~din[1]) & en; //a&~b&en
-  assign dout[3] = (din[0]) & (din[1]) & en;
+  assign dout[3] = (din[0]) & (din[1]) & en;  //a&b&en
 
 endmodule
