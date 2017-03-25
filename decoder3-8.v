@@ -1,4 +1,4 @@
-/*
+/* **BONUS DECODER**
 Authors: Bryan Pesquera
 Description: Decoder from 3 to 8, design simulated 
 using Icarus Verilog 0.10.0 11/23/14 on edaplayground.com
