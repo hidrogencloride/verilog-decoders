@@ -6,9 +6,9 @@ Date: Feb. 15, 2017.
 */
 
 module decoder2to4(din, en, dout);
-  input [1:0] din;
-  input en;
-  output reg [3:0] dout;
+  input [1:0] din; //2bit input
+  input en; //enable
+  output reg [3:0] dout;  //4bit output
 
   //a=din[0], b=din[1]
   //output assignments
