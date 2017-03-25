@@ -8,7 +8,7 @@ Date: Feb. 15, 2017.
 module decoder3-8(din, en, dout);
   input din [1:0];
   input en;
-  output[7:0] dout;
+  output reg [7:0] dout;
   
   //all combinations for 3 inputs to 8 outputs
   assign dout[0] = (~din[0] & ~din[1] & ~en);
