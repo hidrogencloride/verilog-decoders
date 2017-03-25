@@ -5,10 +5,10 @@ using Icarus Verilog 0.10.0 11/23/14 on edaplayground.com
 Date: Feb. 15, 2017.
 */
 
-module decoder3-8(din, en, dout);
-  input din [1:0];
-  input en;
-  output reg [7:0] dout;
+module decoder3to8(din, en, dout);
+  input din [2:0]; //3bit input
+  input en; //enable
+  output reg [7:0] dout; //8bit output
   
   //all combinations for 3 inputs to 8 outputs
   assign dout[0] = (~din[0] & ~din[1] & ~en);
