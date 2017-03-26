@@ -1,22 +1,34 @@
+/*
+Authors: Bryan Pesquera
+Description: Test bench for decoder-combi.v, design simulated 
+using Icarus Verilog 0.10.0 11/23/14 on edaplayground.com
+Date: Feb. 15, 2017.
+*/
+
 module decoder_testbench;
-  wire [7:0]d;
-  reg x, y, z;
+  reg [2:0] din;
+  wire [7:0] w;
+ 
   
-  decoder dec(x, y, z, d);
+  
+  decoder3to8 d38tb(din, w);
   initial begin
     
-    //same possible combinations for 3 to 8
-    //described in decoder
+    $dumpfile("dump.vcd");
+    $dumpvars(1);
     
-    x = 0; y = 0; z = 0;
-#10 x = 0; y = 0; z = 1;
-#10 x = 0; y = 1; z = 0;
-#10 x = 0; y = 1; z = 1;
-#10 x = 1; y = 0; z = 0;
-#10 x = 1; y = 0; z = 1;
-#10 x = 1; y = 1; z = 0;
-#10 x = 1; y = 1; z = 1;
-    #10$finish;
+  //all possible combinations for 3 to 8
+    #10 din[0] = 0; din[1] = 0; din[2] = 0;
+    #10 din[0] = 0; din[1] = 0; din[2] = 1;
+    #10 din[0] = 0; din[1] = 1; din[2] = 0;
+    #10 din[0] = 0; din[1] = 1; din[2] = 1;
+    #10 din[0] = 1; din[1] = 0; din[2] = 0;
+    #10 din[0] = 1; din[1] = 0; din[2] = 1;
+    #10 din[0] = 1; din[1] = 1; din[2] = 0;
+    #10 din[0] = 1; din[1] = 1; din[2] = 1;
+    
+  #10$finish;
+    
   end 
 
 endmodule
