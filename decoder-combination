@@ -1,4 +1,4 @@
-/* WORKING ON IT!
+/*
 Authors: Bryan Pesquera
 Description: , design simulated 
 using Icarus Verilog 0.10.0 11/23/14 on edaplayground.com
@@ -28,8 +28,32 @@ module decoder3to8(din, en, dout);
   output reg [7:0] dout; //8bit output
   wire [7:0] w;
   
+  //connection of two 2to4 modules: --------------------------------------------------
   decoder2to4 mod1(
-              .din[0](din[]))
+  
+              .din[0](din[0]),
+              .din[1](din[1]),
+              
+              .dout[0](w[0]),
+              .dout[1](w[1]),
+              .dout[2](w[2]),
+              .dout[3](w[3]),
+              
+              .en(en));
+              
+ decoder2to4 mod2(
+
+              .din[0](din[1]),
+              .din[1](din[2]),
+              
+              .dout[0](w[4]),
+              .dout[1](w[5]),
+              .dout[2](w[6]),
+              .dout[3](w[7]),
+              
+              .en(en));
+
+  //----------------------------------------------------------------------------------
   
   //all combinations for 3 inputs to 8 outputs
   assign dout[0] = (~din[0] & ~din[1] & ~en);
