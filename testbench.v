@@ -11,7 +11,7 @@ module decoder_testbench;
  
   
   
-  decoder3to8 d38tb(din, w);
+  decoder3to8 d38tb(din, w, en);
   initial begin
     
     $dumpfile("dump.vcd");
