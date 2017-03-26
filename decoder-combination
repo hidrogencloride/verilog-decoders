@@ -23,9 +23,13 @@ endmodule
 
 //----------------------------------------------------------------------------------
 module decoder3to8(din, en, dout);
-  input din [2:0]; //3bit input
+  input [2:0] din; //3bit input
   input en; //enable
   output reg [7:0] dout; //8bit output
+  wire [7:0] w;
+  
+  decoder2to4 mod1(
+              .din[0](din[]))
   
   //all combinations for 3 inputs to 8 outputs
   assign dout[0] = (~din[0] & ~din[1] & ~en);
