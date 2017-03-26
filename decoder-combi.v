@@ -29,30 +29,8 @@ module decoder3to8(din, en, dout);
   wire [7:0] w;
   
 //connection of two 2to4 modules: --------------------------------------------------
-  decoder2to4 mod1(
-  
-              .din[0](din[0]),
-              .din[1](din[1]),
-              
-              .dout[0](w[0]),
-              .dout[1](w[1]),
-              .dout[2](w[2]),
-              .dout[3](w[3]),
-              
-              .en(en));
-              
- decoder2to4 mod2(
-
-              .din[0](din[1]),
-              .din[1](din[2]),
-              
-              .dout[0](w[4]),
-              .dout[1](w[5]),
-              .dout[2](w[6]),
-              .dout[3](w[7]),
-              
-              .en(en));
-
+ decoder2to4 mod1(.din(din), .dout(w), .en(en));
+ decoder2to4 mod2(.din(din), .dout(w), .en(en));
 //----------------------------------------------------------------------------------
   
   //all combinations for 3 inputs to 8 outputs
