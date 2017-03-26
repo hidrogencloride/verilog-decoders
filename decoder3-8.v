@@ -6,7 +6,7 @@ Date: Feb. 15, 2017.
 */
 
 module decoder3to8(din, en, dout);
-  input din [2:0]; //3bit input
+  input [2:0] din; //3bit input
   input en; //enable
   output reg [7:0] dout; //8bit output
   
